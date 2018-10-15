@@ -13,14 +13,11 @@ public class Partition {
 			while(a[rspot] >= pivot && rspot > left) {
 				rspot--;
 			}
-			System.out.println("L:" + lspot);
-			System.out.println("R:" + rspot);
 			if (lspot <= rspot) {
 				tempVal = a[lspot];
 				a[lspot] = a[rspot];
 				a[rspot] = tempVal;
 			}
-			System.out.println(Arrays.toString(a));
 		}
 		a[left] = a[rspot];
 		a[rspot] = pivot;
