@@ -12,3 +12,24 @@ Output from testing Partition.java:
 [4]	MID: 0
 
 Problem 3)
+TESTING
+
+Problem 4)
+TESTING
+
+Problem 5)
+TESTING
+
+Problem 6)
+(first means leftmost)
+Invariant B
+lastwhite = 1+(index of last white value) (i.e. unexamined)
+firstBlue = index of the first blue values 1-(index of first blue value)
+(unexamined) 
+firstWhite = index of the first white value
+  
+
+Invariant C
+lastRed = index of last red value
+firstWhite = index of first white value
+firstBlue = index of first blue value 

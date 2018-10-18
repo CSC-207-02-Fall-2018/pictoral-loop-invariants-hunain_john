@@ -12,7 +12,7 @@ public class Partition {
 	 * @param the location of the value being chosen as a pivot 
 	 * @param the location of the last element sorted in relation to the pivot
 	 * @return the location of the pivot value after its inserted in the middle 
-	 * preconditions: left >= 0, right <= a.length -1, left <= right 
+	 * preconditions: left >= 0, right <= a.length -1, left <= right, a.length >= 1
 	 * postconditions: the value at a[left] is placed switch with another value and the entire array between 
 	 *                 a[left](new) and a[left](old) are <= a[left](old)  and all values between a[left](old)
 	 *                 and a[right] are >= a[left](old)
@@ -22,7 +22,7 @@ public class Partition {
 		int lspot = left+1; //first of the left unexamined values 
 		int rspot = right; //first of the right unexamined values 
 		int tempVal;
-		while (lspot < rspot) {
+		while (lspot <= rspot) {
 			//while the smaller values are on the appropriate side 
 			while(a[lspot] <= pivot && lspot < right) {
 				lspot++;
@@ -32,10 +32,19 @@ public class Partition {
 				rspot--;
 			}
 			//Swap when values are in wrong place, provided the spots haven't crossed
-			if (lspot <= rspot) {
+			if (lspot < rspot) {
 				tempVal = a[lspot];
 				a[lspot] = a[rspot];
 				a[rspot] = tempVal;
+			}
+			//If lspot equals rspot, only one of them should move
+			if (lspot == rspot) {
+				if (a[lspot] <= pivot) {
+					lspot++;
+				}
+				else if (a[rspot] > pivot){
+					rspot--;
+				}
 			}
 		}
 		//Moving pivot to the middle
@@ -53,8 +62,8 @@ public class Partition {
 		int[] a3 = {1, 5, 2, 4, 3, 6}; 
 		int[] a4 = {5, 6, 2, 4, 1, 5};
 		int[] a5 = {3, 6, 2, 4, 1, 5};
-		int[] a6 = {3, 6, 2, 4, 1, 5};
-		int[] a7 = {4};
+		int[] a6 = {3};
+		int[] a7 = {6, 5};
 		int middle1 = partition(a1, 0 , a1.length-1);
 		System.out.println(Arrays.toString(a1) + "\tMID: " + middle1);
 		int middle2 = partition(a2, 0 , a2.length-1);
@@ -65,9 +74,9 @@ public class Partition {
 		System.out.println(Arrays.toString(a4) + "\tMID: " + middle4);
 		int middle5 = partition(a5, 1 , 4);
 		System.out.println(Arrays.toString(a5) + "\tMID: " + middle5);
-		int middle6 = partition(a6, 1 , 2);
+		int middle6 = partition(a6, 0 , 0);
 		System.out.println(Arrays.toString(a6) + "\tMID: " + middle6);
-		int middle7 = partition(a7, 0 , 0);
+		int middle7 = partition(a7, 0 , 1);
 		System.out.println(Arrays.toString(a7) + "\tMID: " + middle7);
 	}
 }
