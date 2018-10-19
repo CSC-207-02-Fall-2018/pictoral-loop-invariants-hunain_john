@@ -56,12 +56,15 @@ works.
 Problem 6)
 (first means leftmost)
 Invariant B
-lastwhite = 1+(index of last white value) (i.e. unexamined)
-firstBlue = (index of first blue value)-1 (i.e.unexamined) 
-firstWhite = (index of the first white value) (examined)
+lastWhite = index of last examined white value 
+firstBlue = index of first blue value (examined) 
+lastRed = index of the last examined red value (examined)
   
 
 Invariant C
 lastRed = index of last red value
 firstWhite = index of first white value
 firstBlue = index of first blue value 
+
+Problem 9)
+Testing of both methods: 
