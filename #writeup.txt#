@@ -1,5 +1,6 @@
 Problem 1)
-ANSWER
+We chose the exit condition where lspot and rspot pass each other so we can
+be sure that every element is examined. 
 
 Problem 2)
 Output from testing Partition.java:
@@ -37,7 +38,21 @@ Why its right: In a array containing the values 1-6, the nth smallest value
 is equal to n, which is what this testing shows us. We tested this on two
 arrays with different ordering, therefore we are confident that it works. 
 Problem 4)
-TESTING
+Part of the output from testing Median.java for median:
+Median1:1
+Median2:3
+Median3:3
+Median4:7
+Median5:3
+Median6:4
+
+Why this works: We tested this on multiple arrays with different values in
+different orderings, all of which returned the correct median. Therefore we
+are confident this works. NOTE: We consider the median to be contained
+within the set of data, even if the array is of even length. So we don't
+average the two middle values, instead we always pick the higher of the two
+as the median. given that the function header we were given told us to
+return an int, this makes more sense than taking an average.
 
 Problem 5)
 Output from testing Quicksort.java:
@@ -54,7 +69,10 @@ can see that they are all now sorted, thus we believe that the method
 works.
 
 Problem 6)
-(first means leftmost)
+(first means leftmost) (Note: We implemented 3 of the 4)
+Invariant A
+
+
 Invariant B
 lastWhite = index of last examined white value 
 firstBlue = index of first blue value (examined) 
@@ -64,7 +82,69 @@ lastRed = index of the last examined red value (examined)
 Invariant C
 lastRed = index of last red value
 firstWhite = index of first white value
-firstBlue = index of first blue value 
+firstBlue = index of first blue value
+
+Problem 7)
+Invariant B:
+lastWhite  = -1 (Start before the beginning of the array, since nothing has
+been examined)
+firstBlue = a.length
+
+Problem 8)
+Implementations in DutchNationalFlag.java
 
 Problem 9)
-Testing of both methods: 
+Testing of invariantA implementation:
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, RED, RED, WHITE, WHITE, WHITE, BLUE, BLUE, BLUE]
+[RED]
+[WHITE]
+[BLUE]
+[RED, BLUE]
+[RED, WHITE]
+[WHITE, BLUE]
+[WHITE, BLUE]
+[RED, BLUE]
+[WHITE, BLUE]
+Testing of invariantB implementation:
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, RED, RED, WHITE, WHITE, WHITE, BLUE, BLUE, BLUE]
+[RED]
+[WHITE]
+[BLUE]
+[RED, BLUE]
+[RED, WHITE]
+[WHITE, BLUE]
+[WHITE, BLUE]
+[RED, BLUE]
+[WHITE, BLUE]
+Testing of invariantC implementation
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, BLUE, WHITE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, RED, RED, WHITE, WHITE, BLUE, WHITE, BLUE, BLUE]
+[RED]
+[WHITE]
+[BLUE]
+[RED, BLUE]
+[RED, WHITE]
+[WHITE, BLUE]
+[WHITE, BLUE]
+[RED, BLUE]
+[BLUE, WHITE]
+
+Why they all 3  work: We tested every permutation of the three, two, and
+single element array, and a totally jumbled array. All were successful.
