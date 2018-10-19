@@ -1,5 +1,6 @@
 Problem 1)
-ANSWER
+We chose the exit condition where lspot and rspot pass each other so we can
+be sure that every element is examined. 
 
 Problem 2)
 Output from testing Partition.java:
@@ -37,7 +38,21 @@ Why its right: In a array containing the values 1-6, the nth smallest value
 is equal to n, which is what this testing shows us. We tested this on two
 arrays with different ordering, therefore we are confident that it works. 
 Problem 4)
-TESTING
+Part of the output from testing Median.java for median:
+Median1:1
+Median2:3
+Median3:3
+Median4:7
+Median5:3
+Median6:4
+
+Why this works: We tested this on multiple arrays with different values in
+different orderings, all of which returned the correct median. Therefore we
+are confident this works. NOTE: We consider the median to be contained
+within the set of data, even if the array is of even length. So we don't
+average the two middle values, instead we always pick the higher of the two
+as the median. given that the function header we were given told us to
+return an int, this makes more sense than taking an average.
 
 Problem 5)
 Output from testing Quicksort.java:
@@ -55,13 +70,78 @@ works.
 
 Problem 6)
 (first means leftmost)
-Invariant B
-lastwhite = 1+(index of last white value) (i.e. unexamined)
-firstBlue = (index of first blue value)-1 (i.e.unexamined) 
-firstWhite = (index of the first white value) (examined)
-  
+Invariant A
+lastWhite = index of last examined white value
+lastRed = index of last examined red value
+lastBlue = index of last examined blue value
+At the start of each loop, lastWhite, lastRed, and lastBlue all mark the last
+examined value in each of their respective colors. All of the unexamined
+values are to the right of lastBlue
 
-Invariant C
-lastRed = index of last red value
-firstWhite = index of first white value
-firstBlue = index of first blue value 
+Invariant B
+lastWhite = index of last examined white value 
+firstBlue = index of first blue value (examined) 
+lastRed = index of the last examined red value (examined)
+At the start of each loop, lastWhite marks the last examined value in white
+and is the boundary between white and the unexamined. firstBlue is the last
+examined value in blue and marks the boundary between blue and the
+unexamined. lastRed marks the last examined red value and marks the
+boundary between red and white. 
+
+Problem 7)
+Invariant A:
+We are keeping track of all of the last indices, so we start all of them
+before the beginning of the array at -1.
+
+Invariant B:
+lastWhite  = -1 (Start before the beginning of the array, since nothing has
+been examined, and we are working with unexamined to the right of white).
+firstBlue = a.length (Start after end of the array, since nothing has been
+examined and we are working towards the center with unexamined to the left
+blue). 
+lastRed = -1 (Start before the beginning of the array, since nothing has
+been examined, and we are working with the unexamined to the right of
+white, which is to the right of red).
+
+Problem 8)
+Implementations in DutchNationalFlag.java
+
+Problem 9)
+Testing of invariantA implementation:
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, RED, RED, WHITE, WHITE, WHITE, BLUE, BLUE, BLUE]
+[RED]
+[WHITE]
+[BLUE]
+[RED, BLUE]
+[RED, WHITE]
+[WHITE, BLUE]
+[WHITE, BLUE]
+[RED, BLUE]
+[WHITE, BLUE]
+
+Testing of invariantB implementation:
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, WHITE, BLUE]
+[RED, RED, RED, WHITE, WHITE, WHITE, BLUE, BLUE, BLUE]
+[RED]
+[WHITE]
+[BLUE]
+[RED, BLUE]
+[RED, WHITE]
+[WHITE, BLUE]
+[WHITE, BLUE]
+[RED, BLUE]
+[WHITE, BLUE]
+
+Why they all 3  work: We tested every permutation of the three, two, and
+single element array, and a totally jumbled array. All were successful.
