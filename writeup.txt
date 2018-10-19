@@ -143,5 +143,5 @@ Testing of invariantB implementation:
 [RED, BLUE]
 [WHITE, BLUE]
 
-Why they all 3  work: We tested every permutation of the three, two, and
+Why they all work: We tested every permutation of the three, two, and
 single element array, and a totally jumbled array. All were successful.
